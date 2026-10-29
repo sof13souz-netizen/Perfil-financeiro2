@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Emprestimo realizado | CredMais</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/emprestimo_realizado.css') }}">
+    <link rel="icon" type="image/png" href="../static/uploads/LogoSoloCrediMais.png">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <a href="{{ url_for('dashboard') }}" class="marca">
+            <img src="{{ url_for('static', filename='uploads/logo.png') }}" alt="Logo CredMais" class="logo-imagem">
+        </a>
+
+        <nav class="menu">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('perfil') }}">Perfil</a>
+            <a href="#">Simulação</a>
+            <a href="{{ url_for('historico_emprestimo') }}" class="ativo">Empréstimos</a>
+            <a href="{{ url_for('movimentacoes') }}">Movimentações</a>
+        </nav>
+    </header>
+
+    <main class="pagina-sucesso">
+        <section class="card-sucesso">
+            <img src="{{ url_for('static', filename='uploads/icone-correto-movimentacao.png') }}" alt="Movimentação registrada" class="icone-sucesso">
+
+            <h1>Empréstimo realizado com sucesso!</h1>
+            <p class="subtitulo-sucesso">
+                A sua solicitação foi registrada e está em precesso de liberação.
+            </p>
+
+            <div class="resumo-sucesso {{ dados.classe }}">
+                <div>
+                    <div class="resumo-rotulo">Valor do empréstimo</div>
+                    <div class="resumo-valor-sucesso">R$ {{ dados.valor_texto }}</div>
+                </div>
+
+                <div class="resumo-info">
+                    <div>Prazo: {{ dados.prazo }}</div>
+                    <div>Parcela: {{ dados.parcela }}</div>
+                </div>
+            </div>
+
+            <hr class="divisor-sucesso">
+
+            <a href="{{ url_for('movimentacoes') }}" class="botao-voltar">Voltar para o Início</a>
+        </section>
+    </main>
+
+</body>
+</html>
